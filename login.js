@@ -1,4 +1,5 @@
-console.log("login page");
+const url =
+  "https://todo-backend-seven-weld.vercel.app/" || "http://localhost:8080/";
 
 async function loginbtns() {
   const email = document.getElementById("email").value;
@@ -8,16 +9,19 @@ async function loginbtns() {
   console.log(password);
 
   try {
-    const res = await fetch("http://localhost:8080/api/v1/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      "https://todo-backend-seven-weld.vercel.app/api/v1/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
       },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+    );
 
     const result = await res.json();
 

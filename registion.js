@@ -1,4 +1,5 @@
-console.log("email");
+const url =
+  "https://todo-backend-seven-weld.vercel.app/" || "http://localhost:8080/";
 
 async function submitbtn() {
   const fullname = document.getElementById("fullname").value;
@@ -14,18 +15,21 @@ async function submitbtn() {
   console.log(password);
 
   try {
-    const res = await fetch("http://localhost:8080/api/v1/reg", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      "https://todo-backend-seven-weld.vercel.app/api/v1/reg",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullname,
+          email,
+          phone,
+          password,
+        }),
       },
-      body: JSON.stringify({
-        fullname,
-        email,
-        phone,
-        password,
-      }),
-    });
+    );
 
     const result = await res.json();
 

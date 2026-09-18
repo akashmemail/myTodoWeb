@@ -1,4 +1,6 @@
 const tokenuser = localStorage.getItem("token");
+const url =
+  "https://todo-backend-seven-weld.vercel.app/" || "http://localhost:8080/";
 
 async function addtodo() {
   const title = document.getElementById("title").value;
@@ -6,17 +8,20 @@ async function addtodo() {
   const des = document.getElementById("des").value;
 
   try {
-    const res = await fetch("http://localhost:8080/api/v1/todos", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${tokenuser}`,
+    const res = await fetch(
+      "https://todo-backend-seven-weld.vercel.app/api/v1/todos",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokenuser}`,
+        },
+        body: JSON.stringify({
+          title,
+          des,
+        }),
       },
-      body: JSON.stringify({
-        title,
-        des,
-      }),
-    });
+    );
 
     const result = await res.json();
     console.log(result);
@@ -35,12 +40,15 @@ async function addtodo() {
 
 async function gettodo() {
   try {
-    const res = await fetch("http://localhost:8080/api/v1/get", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${tokenuser}`,
+    const res = await fetch(
+      "https://todo-backend-seven-weld.vercel.app/api/v1/get",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${tokenuser}`,
+        },
       },
-    });
+    );
 
     const result = await res.json();
 
@@ -66,12 +74,15 @@ gettodo();
 
 async function deletes(id) {
   try {
-    const res = await fetch(`http://localhost:8080/api/v1/delets/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${tokenuser}`,
+    const res = await fetch(
+      `https://todo-backend-seven-weld.vercel.app/api/v1/delets/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${tokenuser}`,
+        },
       },
-    });
+    );
 
     const result = await res.json();
     alert("delete successfully");
@@ -117,12 +128,15 @@ async function getEditTodo() {
   const id = path.get("id");
 
   try {
-    const res = await fetch("http://localhost:8080/api/v1/get", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${tokenuser}`,
+    const res = await fetch(
+      "https://todo-backend-seven-weld.vercel.app/api/v1/get",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${tokenuser}`,
+        },
       },
-    });
+    );
 
     const result = await res.json();
 
@@ -160,14 +174,17 @@ async function save() {
   console.log("this payload", payload);
 
   try {
-    const res = await fetch(`http://localhost:8080/api/v1/edite/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${tokenuser}`,
+    const res = await fetch(
+      `https://todo-backend-seven-weld.vercel.app/api/v1/edite/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokenuser}`,
+        },
+        body: JSON.stringify(payload),
       },
-      body: JSON.stringify(payload),
-    });
+    );
 
     const result = await res.json();
     console.log(result);
