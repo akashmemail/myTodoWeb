@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Optional Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-light py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          <!-- Card Container -->
+          <div class="card shadow-sm border-0 rounded-3">
+            <div class="card-body p-4">
+              <!-- Topbar -->
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h2 class="h4 mb-0 fw-bold">
+                  Hi, <span id="welcome-name" class="text-primary">User</span>
+                </h2>
+                <!-- <button
+                  class="btn btn-outline-danger btn-sm"
+                  id="logout-btn"
+                  type="button"
+                  onclick="logoutbtn()"
+                >
+                  Log out
+                </button> -->
+                <button type="button" onclick="logout()" class="btn btn-danger">
+                  Logout
+                </button>
+              </div>
+
+              <!-- Tabs Navigation -->
+              <ul class="nav nav-tabs mb-3">
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link active">Login</a>
+                </li>
+              </ul>
+
+              <!-- Add Todo Form Card -->
+              <div class="card bg-light border-0 p-3 mb-4 rounded-3">
+                <div class="mb-3">
+                  <label for="new-todo-title" class="form-label fw-semibold"
+                    >Title</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="e.g. Buy groceries"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label
+                    for="new-tod-description"
+                    class="form-label fw-semibold"
+                    >Description</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="des"
+                    placeholder="e.g. Milk, eggs, bread"
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  onclick="addtodo()"
+                  class="btn btn-primary w-100 fw-semibold"
+                  id="add-todo-btn"
+                >
+                  Add Todo
+                </button>
+              </div>
+
+              <!-- Todos Table -->
+              <div class="table-responsive mb-4">
+                <table
+                  class="table table-striped table-hover table-bordered align-middle mb-0"
+                >
+                  <thead class="table-dark">
+                    <tr>
+                      <th scope="col" style="width: 30%">Title</th>
+                      <th scope="col" style="width: 40%">Description</th>
+                      <th scope="col" class="text-center" style="width: 15%">
+                        Delete
+                      </th>
+                      <th scope="col" class="text-center" style="width: 15%">
+                        Edit
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="list"></tbody>
+                </table>
+              </div>
+
+              <!-- Profile Table Container -->
+              <div class="table-responsive">
+                <table class="table table-sm table-borderless">
+                  <tbody id="profile">
+                    <!-- Dynamic Profile Details -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Files -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./todo.js"></script>
+  </body>
+</html>
